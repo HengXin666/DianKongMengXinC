@@ -23,7 +23,7 @@
 
 ---
 
-![广告](http://这个本来就没有东西.loli/404.jpg): [C++20协程和基于`io_uring`の百万并发http/https服务器/客户端](https://github.com/HengXin666/HXNet)
+![广告](http://127.0.0.1/404.jpg): [C++20协程和基于`io_uring`の百万并发http/https服务器/客户端](https://github.com/HengXin666/HXNet)
 
 ## 二、 作业提交
 ### 2.1 C语言评分标准
