@@ -1,4 +1,4 @@
-<h1 align="center" style="color:red">DGUT 2024届 K队 电控 C 语言学习指北</h1>
+<h1 align="center" style="color:red">DGUT 2024 K队 电控 C 语言学习指北</h1>
 
 ## 一、前言 & 通知
 
@@ -23,7 +23,7 @@
 
 ---
 
-![广告](http://127.0.0.1/404.jpg): [C++20协程和基于`io_uring`の百万并发http/https服务器/客户端](https://github.com/HengXin666/HXNet)
+~~广告: [C++20协程和基于`io_uring`の百万并发http/https服务器/客户端](https://github.com/HengXin666/HXNet)~~
 
 ## 二、 作业提交
 ### 2.1 C语言评分标准
@@ -81,7 +81,16 @@
 > [!CAUTION]
 > <h1 align="center" style="color:red"> !!!安装路径不要有中文!!! </h1>
 
-- 练习: Hello World! 程序 (保证C语言环境配置完毕)
+- 练习: Hello World! 程序 (保证C语言环境配置完毕) 编写一个 [HelloWorld.c](src\HelloWorld.c) 内容如下:
+
+```C
+#include <stdio.h>
+
+int main() {
+    printf("Hello World!\n");
+    return 0;
+}
+```
 
 ---
 
