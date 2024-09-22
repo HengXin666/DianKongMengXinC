@@ -14,7 +14,7 @@
 > [!IMPORTANT]
 > 如果可以的话, 可以学习一下 [MarkDown语法](https://markdown.com.cn/basic-syntax/), 做笔记/写技术文档都是会用到的, 而且简单、简洁且方便! (文件以`.md`结尾(千万不要被 $md$ 这两个字给吓到了~)) 
 >
-> 此外, 代码风格也是很重要的! 具体可以看看: [代码规范指北](document\CodeSpecifications.md)
+> 此外, 代码风格也是很重要的! 具体可以看看: [代码规范指北](document/CodeSpecifications.md)
 
 ---
 
@@ -81,7 +81,7 @@
 > [!CAUTION]
 > <h1 align="center" style="color:red"> !!!安装路径不要有中文!!! </h1>
 
-- 练习: Hello World! 程序 (保证C语言环境配置完毕) 编写一个 [HelloWorld.c](src\HelloWorld.c) 内容如下:
+- 练习: Hello World! 程序 (保证C语言环境配置完毕) 编写一个 [HelloWorld.c](src/HelloWorld.c) 内容如下:
 
 ```C
 #include <stdio.h>
