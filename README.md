@@ -1,7 +1,5 @@
 <h1 align="center" style="color:red">DGUT 2024 K队 电控 C 语言学习指北</h1>
 
-$$ f(x) = \int_{-\infty}^\infty  \hat f(x)\xi\,e^{2 \pi i \xi x}  \,\mathrm{d}\xi $$
-
 ## 一、前言 & 通知
 
 > [!TIP]
@@ -9,7 +7,7 @@ $$ f(x) = \int_{-\infty}^\infty  \hat f(x)\xi\,e^{2 \pi i \xi x}  \,\mathrm{d}\x
 >
 > 难度肯定是有点的; 如果可以认真好好完成, 绝对乱杀学校的C语言考试 (八股文就算了)
 >
-> 修改了一些格式问题, 等时间截止了, 这里就会更新答案!
+> 修改了一些格式问题, `等时间截止了, 这里就会更新答案`!
 >
 > 如果有问题, 可以去 [issues](https://github.com/HengXin666/DianKongMengXinC/issues) 进行提问, 这样别人也可以看到!
 
