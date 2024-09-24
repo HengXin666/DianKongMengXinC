@@ -10,6 +10,9 @@
 # 屏蔽 
 answer/*.md
 
+# 解封
+!answer/answer01.md
+
 src/answer/*.c
 
 # Linker output
