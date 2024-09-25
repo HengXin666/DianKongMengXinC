@@ -1,1 +1,3 @@
 console.log("Hello");
+
+// 为什么不学 TS ?! qwq...
