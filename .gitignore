@@ -9,6 +9,7 @@
 
 # 屏蔽 
 answer/*.md
+.vscode/**
 
 # 解封
 !answer/answer01.md
