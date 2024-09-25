@@ -12,6 +12,7 @@ answer/*.md
 
 # 解封
 !answer/answer01.md
+!src/answer/answer01.c
 
 src/answer/*.c
 
