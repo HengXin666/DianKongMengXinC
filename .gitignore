@@ -9,13 +9,19 @@
 
 # 屏蔽 
 answer/*.md
-.vscode/**
 
 # 解封
 !answer/answer01.md
 !src/answer/answer01.c
 
 src/answer/*.c
+
+# vscode ================================
+.vscode/*
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
 
 # Linker output
 *.ilk
