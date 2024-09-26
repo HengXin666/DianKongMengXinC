@@ -9,12 +9,13 @@
 
 # 屏蔽 
 answer/*.md
+src/answer/*.c
 
 # 解封
 !answer/answer01.md
+!answer/answer02.md
 !src/answer/answer01.c
-
-src/answer/*.c
+!src/answer/answer02.c
 
 # vscode ================================
 .vscode/*

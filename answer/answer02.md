@@ -1,0 +1,181 @@
+# 题目
+
+- 练习: 9 * 9 乘法表
+
+> [!WARNING]
+> #### 第二次作业 (最晚提交时间: `9.26 23:59:59`)
+
+- `长 * 宽`=`p * q`的**余数表**, 要求用户可以输入两个正整数 ( $p$ , $q$ ; 其中 $p >= q$ ), 特别要求: 因为`六丁六甲, 从不吃素`, 所以我们需要剔除 **任何** 含有`6`及其**倍数**的数字作为`被除数`和`除数`时候的式子(需要用到`continue;`和`break;`), 下面是运行示例:
+
+```C
+//第二次作业
+
+请输入p和q: 3 3
+
+这个是 3 * 3 的余数表
+1 ÷ 1 = 1 ... 0
+2 ÷ 1 = 2 ... 0, 2 ÷ 2 = 1 ... 0
+3 ÷ 1 = 3 ... 0, 3 ÷ 2 = 1 ... 1, 3 ÷ 3 = 1 ... 0
+```
+
+## 答案
+
+- 练习: 9 * 9 乘法表
+
+```C
+#include <stdio.h>
+
+int main() {
+    const int n = 9;
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= i; ++j) {
+            printf("%d * %d = %2d ", i, j, i * j);
+        }
+        putchar('\n');
+    }
+    return 0;
+}
+```
+
+- 作业: 余数表
+
+> 用到的知识: C语言的整数`除法`是`向零取整`(正数的时候即表现为`向下取整`), `取模`的使用
+>
+> PS: 位运算是`向下取整`, 如: `printf("%d %d\n", -3 / 2, -3 >> 1);`, 输出为`-1 -2`
+
+- 参考答案 1: (虽然没有用到`break;`, 但是实际上这个运行效率理论上更高(虽然编译器也会优化掉); 也可以满分)
+```C
+#include <stdio.h>
+
+int main() {
+    int p = 0, q = 0;
+    printf("请输入p和q: ");
+    scanf("%d %d", &p, &q);
+
+    printf("\n这个是 %d * %d 的余数表\n", p, q);
+    for (int i = 1; i <= p; ++i) {
+        if (!(i % 6)) // i % 6 == 0
+            continue;
+        _Bool tag = 0; // 用于控制 , 号
+        for (int j = 1; j <= i && j <= q; ++j) {
+            if (!(j % 6)) // j % 6 == 0
+                continue;
+            if (tag) {
+                printf(", %d ÷ %d = %d ... %d", i, j, i / j, i % j);
+            } else {
+                printf("%d ÷ %d = %d ... %d", i, j, i / j, i % j);
+                tag = 1;
+            }
+        }
+        putchar('\n');
+    }
+    return 0;
+}
+```
+
+- 参考答案2:
+```C
+#include <stdio.h>
+
+int main() {
+    int p = 0, q = 0;
+    printf("请输入p和q: ");
+    scanf("%d %d", &p, &q);
+
+    printf("\n这个是 %d * %d 的余数表\n", p, q);
+    for (int i = 1; i <= p; ++i) {
+        _Bool tag = 0; // 用于控制 , 号
+        for (int j = 1; j <= i && j <= q; ++j) {
+            if (!(i % 6)) // i % 6 == 0
+                break;;
+            if (!(j % 6)) // j % 6 == 0
+                continue;
+            if (tag) {
+                printf(", %d ÷ %d = %d ... %d", i, j, i / j, i % j);
+            } else {
+                printf("%d ÷ %d = %d ... %d", i, j, i / j, i % j);
+                tag = 1;
+            }
+        }
+        putchar('\n');
+    }
+    return 0;
+}
+```
+
+- 评分标准:
+
+|分数|注解|
+|:-|:-|
+|0分|未提交|
+|10分|没有按要求 (比如: 面向printf的编程 (只有printf))|
+|30分|提交但运行不正确|
+|90分|运行正确, 但是没有按照输出格式输出<br>注: 主要是看`,`号 (其他的随便)|
+|100分|运行正确, 输出格式也正确, 码风清晰|
+
+> 注: 如果无法编译等其他原因, 酌情给分,
+>
+> 特别, 注: 如果写了 剔除含有`6`的数字 的代码, 也不做扣分 (我认为应该加分 qwq...)
+
+值得注意的是, 如果需要剔除含有`6`的数字, 并且不仅限于它的倍数, 则应该:
+
+```C
+#include <stdio.h>
+
+int main() {
+    int p = 0, q = 0;
+    printf("请输入p和q: ");
+    scanf("%d %d", &p, &q);
+
+    printf("\n这个是 %d * %d 的余数表\n", p, q);
+    for (int i = 1; i <= p; ++i) {
+        if (!(i % 6)) // i % 6 == 0
+            continue;
+
+        {   // 排除 i 含义数字 6; 
+            // 此处使用了局部作用域, 防止可能的污染后续的命名空间; 
+            // 因为逻辑相似, 同学们可以尝试使用宏/函数来封装 (如果你学了的话)
+            int tmp = i, flag = 0;
+            while (tmp) {
+                if (tmp % 10 == 6) {
+                    flag = 1;
+                    break;
+                }
+                tmp /= 10;
+            }
+            if (flag) {
+                continue;
+            }
+        }
+
+        _Bool tag = 0; // 用于控制 , 号
+        for (int j = 1; j <= i && j <= q; ++j) {
+            if (!(j % 6)) // j % 6 == 0
+                continue;
+            
+            // 排除 j 含义数字 6
+            int tmp = j, flag = 0;
+            while (tmp) {
+                if (tmp % 10 == 6) {
+                    flag = 1;
+                    break;
+                }
+                tmp /= 10;
+            }
+            if (flag) {
+                continue;
+            }
+
+            // 打印
+            if (tag) {
+                printf(", %d ÷ %d = %d ... %d", i, j, i / j, i % j);
+            } else {
+                printf("%d ÷ %d = %d ... %d", i, j, i / j, i % j);
+                tag = 1;
+            }
+        }
+        putchar('\n');
+    }
+    return 0;
+}
+```
