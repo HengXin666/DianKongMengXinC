@@ -26,6 +26,10 @@
 ~~广告: [C++20协程和基于`io_uring`の百万并发http/https服务器/客户端](https://github.com/HengXin666/HXNet)~~
 
 ## 二、 作业提交
+### 2.0 作业评讲 & 会议直播 (回放)
+
+- [2024【Kinetic】电控萌新C语言作业讲解&第一次会议](https://www.bilibili.com/video/BV1sAxFewE9o/)
+
 ### 2.1 C语言评分标准
 
 | 提交时间 | 作业完成度 | 线下考试 |
