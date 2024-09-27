@@ -87,7 +87,7 @@ int main() {
         _Bool tag = 0; // 用于控制 , 号
         for (int j = 1; j <= i && j <= q; ++j) {
             if (!(i % 6)) // i % 6 == 0
-                break;;
+                break;
             if (!(j % 6)) // j % 6 == 0
                 continue;
             if (tag) {
