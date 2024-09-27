@@ -28,7 +28,7 @@
 ## 二、 作业提交
 ### 2.0 作业评讲 & 会议直播 (回放)
 
-- [2024【Kinetic】电控萌新C语言作业讲解&第一次会议](https://www.bilibili.com/video/BV1sAxFewE9o/)
+- 文档: [点我](document/meeting/meeting01.md) | [2024【Kinetic】电控萌新C语言作业讲解&第一次会议 (B站)](https://www.bilibili.com/video/BV1sAxFewE9o/)
 
 ### 2.1 C语言评分标准
 
