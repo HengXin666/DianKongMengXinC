@@ -94,21 +94,21 @@ int main() {
 
         // 根据输入更新目标坐标
         switch (command) {
-            case 'w': // 上
-                newY--;
-                break;
-            case 'a': // 左
-                newX--;
-                break;
-            case 's': // 下
-                newY++;
-                break;
-            case 'd': // 右
-                newX++;
-                break;
-            default:
-                printf("无效的输入，请输入 w, a, s 或 d.\n");
-                isError = 1;
+        case 'w': // 上
+            newY--;
+            break;
+        case 'a': // 左
+            newX--;
+            break;
+        case 's': // 下
+            newY++;
+            break;
+        case 'd': // 右
+            newX++;
+            break;
+        default:
+            printf("无效的输入，请输入 w, a, s 或 d.\n");
+            isError = 1;
             continue;
         }
 
@@ -165,21 +165,21 @@ int main() {
 
         // 根据输入更新目标坐标
         switch (command) {
-            case 'w': // 上
-                newY--;
-                break;
-            case 'a': // 左
-                newX--;
-                break;
-            case 's': // 下
-                newY++;
-                break;
-            case 'd': // 右
-                newX++;
-                break;
-            default:
-                printf("无效的输入，请输入 w, a, s 或 d.\n");
-                isError = 1;
+        case 'w': // 上
+            newY--;
+            break;
+        case 'a': // 左
+            newX--;
+            break;
+        case 's': // 下
+            newY++;
+            break;
+        case 'd': // 右
+            newX++;
+            break;
+        default:
+            printf("无效的输入，请输入 w, a, s 或 d.\n");
+            isError = 1;
             continue;
         }
 

@@ -17,6 +17,7 @@ src/answer/*.c
 !answer/answer03.md
 !src/answer/answer01.c
 !src/answer/answer02.c
+!src/answer/answer03.c
 
 # vscode ================================
 .vscode/*
