@@ -15,6 +15,7 @@ src/answer/*.c
 !answer/answer01.md
 !answer/answer02.md
 !answer/answer03.md
+!answer/answer04.md
 !src/answer/answer01.c
 !src/answer/answer02.c
 !src/answer/answer03.c

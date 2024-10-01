@@ -300,7 +300,7 @@ int main() {
 }
 ```
 
-> 答案解析 & 评分标准: [到时间, 则开放](answer/answer04.md)
+> 答案解析 & 评分标准: [点我](answer/answer04.md)
 
 ---
 
