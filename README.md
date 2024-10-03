@@ -333,7 +333,7 @@ int main() {
 c d e f
 ```
 
-> 答案解析 & 评分标准: [到时间, 则开放](answer/answer05.md)
+> 答案解析 & 评分标准: [点我](answer/answer05.md)
 
 ---
 
