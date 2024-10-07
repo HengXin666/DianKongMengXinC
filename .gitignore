@@ -19,6 +19,7 @@ src/answer/*.c
 !answer/answer05.md
 !answer/answer06.md
 !answer/answer07.md
+!answer/answer08.md
 !src/answer/answer01.c
 !src/answer/answer02.c
 !src/answer/answer03.c
