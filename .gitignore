@@ -25,6 +25,8 @@ src/examination/*.c
 !src/answer/answer01.c
 !src/answer/answer02.c
 !src/answer/answer03.c
+!src/answer/answer08.c
+!src/answer/answer09.c
 
 # vscode ================================
 .vscode/*
