@@ -340,3 +340,210 @@ int main() {
 |100分|运行正确, 有基本的注释, 代码风格统一|
 
 > 注: 如果无法编译等其他原因, 酌情给分
+
+## 拓展
+
+我突然发现之前学C++(23年国庆)的时候写的这个, 有兴趣的可以看看..(实际上用的还是C风格的C++)
+
+![gif](../document/img/PixPin_2024-10-08_22-33-04.gif)
+
+(加`_demo`前缀是因为这个是多文件编译的, .cpp会函数重名, 偷懒就这样标识了)
+
+```C++
+#include <iostream>
+#include <cstdlib>	// 产生随机数
+#include <ctime>	// 系统时间
+
+using namespace std;
+
+#define DECK 54				// 一副牌的牌的数量
+#define PLAYER_NUM 3		// 玩家数量
+#define LICENSING_DELAY 200 // 发牌延迟 (单位 ms)
+
+static struct PlayerData
+{
+	char name[36] = "未命名用户";	// 玩家名
+	char brand[17];					// 牌
+	bool tag = 0;					// 0是农民, 1是地主 (现在没什么用)
+};
+
+static const char* str[] = { "黑桃", "红桃", "梅花", "方块", "大王", "小王" };
+
+static PlayerData* _demo_12_playerData(int num);
+static void _demo_12_playerData_free(PlayerData** res);
+static char* _demo_12_xiPai(void);																			// 洗牌
+static void _demo_12_xianshiPaiData(char data);																// 显示牌
+static void _demo_12_printPai(PlayerData playerMen[PLAYER_NUM], int play_id, int pai_position);				// 显示全部玩家的牌
+static void _demo_12_faPai(char* res, PlayerData playerMen[PLAYER_NUM]);									// 发牌
+static void _demo_12_xiPai_free(char** res);
+
+static void _demo_12_xianshiPaiData(char data)
+{
+	char ch;
+	if (data <= 51)
+	{
+		ch = data % 13;
+		cout << str[data % 4];
+		if (ch < 10 && ch > 0)	// 不包含 A JQK
+		{
+			cout << char('0' + ch);
+		}
+		else
+		{
+			switch (ch)
+			{
+			case 0:
+			{
+				cout << 'A';
+				break;
+			}
+			case 10:
+			{
+				cout << 'J';
+				break;
+			}
+			case 11:
+			{
+				cout << 'Q';
+				break;
+			}
+			case 12:
+			{
+				cout << 'K';
+				break;
+			}
+			default:
+				break;
+			}
+		}
+	}
+	else
+	{
+		if (data == 52)
+		{
+			cout << str[4];
+		}
+		else
+		{
+			cout << str[5];
+		}
+	}
+}
+
+static PlayerData* _demo_12_playerData(int num)
+{
+	PlayerData* res = (PlayerData*)malloc(sizeof(PlayerData) * num);
+	for (int i = 0; i < num; ++i)
+	{
+		system("cls");
+		cout << "请输入玩家 " << i + 1 << " 的名字:";
+		cin >> res[i].name;
+	}
+
+	return res;
+}
+
+static void _demo_12_playerData_free(PlayerData** res)
+{
+	free(*res);
+	*res = nullptr;
+}
+
+static char* _demo_12_xiPai(void)	// 洗牌
+{
+	// 返回一个 值为 0 - 53 的, 不重复的字符数组
+	char* res = (char*)malloc(sizeof(char) * DECK);
+	srand(time(NULL));
+	for (int i = 0, j, k; i < DECK; ++i)
+	{
+		while (true)
+		{
+			j = rand() % DECK;
+			for (k = 0; k < i; ++k)
+			{
+				if (res[k] == j)
+					break;
+			}
+
+			if (k == i)
+			{
+				break;
+			}
+		}
+		res[i] = j;
+	}
+
+	return res;
+}
+
+static void _demo_12_printPai(PlayerData playerMen[PLAYER_NUM], int play_id, int pai_position)				// 显示全部玩家的牌
+{
+	char ch;
+	system("cls");
+	for (int i = 0, j, k; i < PLAYER_NUM; ++i)
+	{	
+		cout << "玩家 [" << playerMen[i].name << "] 的牌:";
+		k = pai_position + (i <= play_id);
+		for (j = 0; j < k ; ++j)
+		{
+			cout << " ";
+			_demo_12_xianshiPaiData(playerMen[i].brand[j]);
+		}
+		cout << endl;
+	}
+}
+
+static void _demo_12_faPai(char* res, PlayerData playerMen[PLAYER_NUM])		// 发牌
+{
+	time_t if_time = clock() + LICENSING_DELAY;
+	for (int i = 0, j, k = 0; i < DECK - 3; i += 3, ++k)
+	{
+		for (j = 0; j < PLAYER_NUM; ++j)
+		{
+			playerMen[j].brand[k] = res[i + j];
+			while (clock() - if_time < LICENSING_DELAY)
+				;
+			if_time = clock();
+			_demo_12_printPai(playerMen, j, k);
+		}
+	}
+
+	cout << endl << "地主牌: ";
+	for (int i = DECK - 3; i < DECK; ++i)
+	{
+		cout << " ";
+		while (clock() - if_time < LICENSING_DELAY * 2)
+			;
+		if_time = clock();
+		_demo_12_xianshiPaiData(res[i]);
+	}
+	cout << endl;
+}
+
+static void _demo_12_xiPai_free(char** res)
+{
+	free(*res);
+	*res = nullptr;
+}
+
+void demo_12(void)
+{
+	// 实现洗牌发牌(斗地主)
+	PlayerData* arr = _demo_12_playerData(PLAYER_NUM);
+	
+	char* pai = _demo_12_xiPai();
+	_demo_12_faPai(pai, arr);
+	_demo_12_xiPai_free(&pai);
+	_demo_12_playerData_free(&arr);
+}
+
+int main()
+{
+                        // By Heng_Xin
+    system("cls");      // 清屏
+    system("color a");  // 可以使用cmd
+    demo_12();
+
+    std::cout << std::endl << "--- The World ---" << std::endl;
+}
+```
