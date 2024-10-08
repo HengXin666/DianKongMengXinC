@@ -10,6 +10,7 @@
 # 屏蔽 
 answer/*.md
 src/answer/*.c
+src/examination/*.c
 
 # 解封
 !answer/answer01.md
@@ -20,6 +21,7 @@ src/answer/*.c
 !answer/answer06.md
 !answer/answer07.md
 !answer/answer08.md
+!answer/answer09.md
 !src/answer/answer01.c
 !src/answer/answer02.c
 !src/answer/answer03.c
